@@ -1,0 +1,699 @@
+﻿<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../static/iconfont.css" />
+    <link rel="stylesheet" href="../static/chat.css" />
+    <script src="../static/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="chatContainer" style="z-index: 100">
+      <!-- <div class="qqcss">
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2912167928&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2912167928:53" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>        <i class="iconfont icon-xiaoxi1"></i>
+    </div> -->
+      <div class="chatBtn">
+        <i class="iconfont icon-xiaoxi1"></i>
+      </div>
+      <div class="chat-message-num"></div>
+      <div class="chatBox" ref="chatBox" style="display: none">
+        <div class="chatBox-head">
+          <div class="chatBox-head-one">
+            Chatbot
+            <div
+              class="chat-close"
+              style="margin: 10px 10px 0 0; font-size: 14px"
+            >
+              X
+            </div>
+          </div>
+          <div class="chatBox-head-two">
+            <div class="chat-return">back</div>
+            <div class="chat-people">
+              <div class="ChatInfoHead">
+                <img src="" alt="avatar" />
+              </div>
+              <div class="ChatInfoName">client</div>
+            </div>
+            <div class="chat-close">X</div>
+          </div>
+        </div>
+        <div class="chatBox-info">
+          <div class="chatBox-list" ref="chatBoxlist">
+            <div class="chat-list-people">
+              <div><img src="../static/icon01.png" alt="avatar" /></div>
+              <div class="chat-name">
+                <p>Chatbot</p>
+              </div>
+              <div class="message-num">ask</div>
+            </div>
+          </div>
+          <div class="chatBox-kuang" ref="chatBoxkuang">
+            <div class="chatBox-content">
+              <div class="chatBox-content-demo" id="chatBox-content-demo">
+                <div class="clearfloat">
+                  <div class="author-name">
+                    <small class="chat-date" id="systime"
+                      >2019-5-24 19:24:35</small
+                    >
+                  </div>
+                  <div class="left">
+                    <div class="chat-avatars">
+                      <img src="../static/icon01.png" alt="avatar" />
+                    </div>
+                    <div class="chat-message">
+                      You can enter 'frequently asked questions' to get a list
+                      of frequently asked questions
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chatBox-send">
+              <div class="div-textarea"></div>
+              <div>
+                <button id="chat-biaoqing" class="btn-default-styles">
+                  <i class="iconfont icon-biaoqing"></i>
+                </button>
+                <label
+                  id="chat-tuxiang"
+                  title="sendImage"
+                  for="inputImage"
+                  class="btn-default-styles"
+                >
+                  <input
+                    type="file"
+                    onchange="selectImg(this)"
+                    accept="image/jpg,image/jpeg,image/png"
+                    name="file"
+                    id="inputImage"
+                    class="hidden"
+                  />
+                  <i class="iconfont icon-tuxiang"></i>
+                </label>
+                <button id="chat-fasong" class="btn-default-styles">
+                  <i class="iconfont icon-fasong"></i>
+                </button>
+              </div>
+              <div class="biaoqing-photo">
+                <ul>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -9px -18px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -40px -18px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -71px -18px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -102px -18px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -133px -18px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -164px -18px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -9px -52px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -40px -52px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -71px -52px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -102px -52px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -133px -52px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -164px -52px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -9px -86px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -40px -86px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -71px -86px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -102px -86px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -133px -86px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -164px -86px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -9px -120px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -40px -120px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -71px -120px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -102px -120px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -133px -120px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -164px -120px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -9px -154px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -40px -154px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -71px -154px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -102px -154px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -133px -154px"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      class="emoji-picker-image"
+                      style="background-position: -164px -154px"
+                    ></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function timenow() {
+        var myDate = new Date()
+        var times = myDate.toLocaleString()
+        return times
+      }
+
+      document.getElementById('systime').innerHTML = timenow()
+      screenFuc()
+
+      function screenFuc() {
+        var topHeight = $('.chatBox-head').innerHeight() // Chat head height
+        // When the screen is smaller than 768px, the layout changes
+        var winWidth = $(window).innerWidth()
+        if (winWidth <= 768) {
+          var totalHeight = $(window).height() // Overall height of the page
+          $('.chatBox-info').css('height', totalHeight - topHeight)
+          var infoHeight = $('.chatBox-info').innerHeight() // Chat height below the head
+          // Overall height of the page
+          $('.chatBox-content').css('height', infoHeight - 46)
+          $('.chatBox-content-demo').css('height', infoHeight - 46)
+
+          $('.chatBox-list').css('height', totalHeight - topHeight)
+          $('.chatBox-kuang').css('height', totalHeight - topHeight)
+          $('.div-textarea').css('width', winWidth - 106)
+        } else {
+          $('.chatBox-info').css('height', 495)
+          $('.chatBox-content').css('height', 448)
+          $('.chatBox-content-demo').css('height', 448)
+          $('.chatBox-list').css('height', 495)
+          $('.chatBox-kuang').css('height', 495)
+          $('.div-textarea').css('width', 260)
+        }
+      }
+      ;(window.onresize = function () {
+        screenFuc()
+      })()
+      // When the number of unread messages is empty
+      var totalNum = $('.chat-message-num').html()
+      if (totalNum == '') {
+        $('.chat-message-num').css('padding', 0)
+      }
+      $('.message-num').each(function () {
+        var wdNum = $(this).html()
+        if (wdNum == '') {
+          $(this).css('padding', 0)
+        }
+      })
+
+      // Open/close chat box
+      $('.chatBtn').click(function () {
+        $('.chatBox').toggle(10)
+      })
+      $('.chat-close').click(function () {
+        $('.chatBox').toggle(10)
+      })
+      // Go to chat page
+      $('.chat-list-people').each(function () {
+        $(this).click(function () {
+          var n = $(this).index()
+          $('.chatBox-head-one').toggle()
+          $('.chatBox-head-two').toggle()
+          $('.chatBox-list').fadeToggle()
+          $('.chatBox-kuang').fadeToggle()
+
+          // Send name
+          $('.ChatInfoName').text(
+            $(this).children('.chat-name').children('p').eq(0).html()
+          )
+
+          // Profile picture
+          $('.ChatInfoHead>img').attr(
+            'src',
+            $(this).children().eq(0).children('img').attr('src')
+          )
+
+          // The chat box is at the bottom by default
+          $(document).ready(function () {
+            $('#chatBox-content-demo').scrollTop(
+              $('#chatBox-content-demo')[0].scrollHeight
+            )
+          })
+        })
+      })
+
+      // Back to list
+      $('.chat-return').click(function () {
+        $('.chatBox-head-one').toggle(1)
+        $('.chatBox-head-two').toggle(1)
+        $('.chatBox-list').fadeToggle(1)
+        $('.chatBox-kuang').fadeToggle(1)
+      })
+
+      // Send message
+      $('#chat-fasong').click(function () {
+        var textContent = $('.div-textarea')
+          .html()
+          .replace(/[\n\r]/g, '<br>')
+        if (textContent != '') {
+          $('.chatBox-content-demo').append(
+            '<div class="clearfloat">' +
+              '<div class="author-name"><small class="chat-date" id="timenow"></small> </div> ' +
+              '<div class="right"> <div class="chat-message"> ' +
+              textContent +
+              ' </div> ' +
+              '<div class="chat-avatars"><img src="../static/icon01.png" alt="avatar" /></div> </div> </div>'
+          )
+          // Clear the input box after sending
+          $('.div-textarea').html('')
+          // The chat box is at the bottom by default
+          $(document).ready(function () {
+            $('#chatBox-content-demo').scrollTop(
+              $('#chatBox-content-demo')[0].scrollHeight
+            )
+          })
+          document.getElementById('timenow').innerHTML = timenow()
+
+          if (textContent.indexOf('frequently asked questions') != '-1') {
+            var re =
+              'frequently asked questions:' +
+              '<br/>' +
+              "<a href='javascript:;' >What is  the Jaktent?</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >What's on Jaktent?</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >Who can join Jaktent?</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >How do I participate as an attendee?</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >I am interested in a free session, how can I watch it?</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >I have questions regarding Jaktent that can't be found here, where should I go?</a>"
+            reply(re)
+          } else if (textContent.indexOf('What is  the Jaktent?') != '-1') {
+            var re =
+              'Jakarta Content Week (Jaktent) is an international event comprising conferences, workshops, seminars, festivals, and exhibitions. Jaktent will bring together and showcase various sectors in the creative industries, with a focus on the Asia Pacific region. Jakarta Content Week aims to be the new hub for creative content and rights trading in Asia Pacific, focusing on license for publishing products and intellectual property rights from cultural and creative sectors in the thriving region. Our tent is open for global and local players, from established companies to small and medium enterprises.'
+            reply(re)
+          } else if (textContent.indexOf("What's on Jaktent?") != '-1') {
+            var re =
+              'We have seven types of events for you: Litbeat, Litfest, Litbite, Litfilm, Litrade, The Market, and the Cosplay championship(Icon).' +
+              '<br/>' +
+              "<a href='javascript:;' >LitBite(Culinary)</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >LitFest(Literary)</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >Trade(LitTrade)</a>" +
+              '<br/>' +
+              "<a href='javascript:;'> LitBeat(Creative)</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >Film(LitFilm)</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >Icon(Pop culture)</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >The Market</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >Frankfurt Rights</a>" +
+              '<br/>' +
+              "<a href='javascript:;' >Translator Forum</a>"
+            reply(re)
+          } else if (textContent.indexOf('LitBite(Culinary)') != '-1') {
+            var re =
+              'In LitBite(Culinary), renowned chefs and culinary experts will share their passion and insight with the audiences. They will engage in talks, tasting, and cooking demos. Join us, and expand your knowledge on new healthy recipes, starting up your culinary business, nutrition, and sustainable ingredients.' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/lit-bite' target='_blank'>See more details about LitBite</a>"
+            reply(re)
+          } else if (textContent.indexOf('LitFest(Literary)') != '-1') {
+            var re =
+              'LitFest(Literary) is the online literary stage of Jaktent, where acclaimed international and national authors will be present. Here they will engage the audience with readings, in-depth discussions, and talk shows. Renowned speakers will share and discuss a range of subjects, from literature, translation, copyright, and spotlight on the up and coming talents in the region. ' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/lit-fes' target='_blank'>See more details about LitFest</a>"
+            reply(re)
+          } else if (textContent.indexOf('Trade(LitTrade)') != '-1') {
+            var re =
+              'LitTrade(Trade) includes masterclass and seminars on content trading, covering all the right things about rights and intellectual property. Start right away through our business matchmaking and pitching sessions.' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/lit-trade' target='_blank'>See more details about LitTrade</a>"
+            reply(re)
+          } else if (textContent.indexOf('LitBeat(Creative)') != '-1') {
+            var re =
+              'LitBeat(Creative) is the conference featuring different aspects of the creative industry. Presenting a series of talk shows, sharing sessions, and masterclasses focusing on new issues and technologies in sub-sectors of the creative industry. Top-name creators, authors, and industry players share their knowledge and strategies and provide tips on the development of creative products and idea.' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/lit-beat' target='_blank'>See more details about LitBeat</a>"
+            reply(re)
+          } else if (textContent.indexOf('Film(LitFilm)') != '-1') {
+            var re =
+              'The LitFilm(Film) part includes the festival for arthouse films and financing forums. Join us in the panel discussions, presenting ideas, trends, and insights from the industry’s prominent people. Curated arthouse films from both Indonesia and abroad will be streamed for your enjoyment on our website.' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/lit-film' target='_blank'>See more details about LitFilm</a>"
+            reply(re)
+          } else if (textContent.indexOf('Icon(Pop culture)') != '-1') {
+            var re =
+              'This part is a venue for pop culture and esports lovers. Icon will feature talk shows, with prominent players from the industry. From pro esports players, developers, publishers, creative creators, and cosplayers.' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/icon' target='_blank'>See more details about Icon</a>"
+            reply(re)
+          } else if (textContent.indexOf('The Market') != '-1') {
+            var re =
+              'The market is a venue for players in the publishing, creative industries, and Small and Medium Enterprises. Here, they will be able to display the best of their products in virtual and physical exhibitions.  Participating in matchmaking sessions, and the chance to pitch your products to potential investors.At the same time, there is a platform for content owners and creative products to seek to expand their business. It is a B2B platform created to connect producers, distributors or potential business partners for further cooperation. It is also a platform for investors to seek for business collaborations.' +
+              '<br/>' +
+              "<a href='https://www.jaktent.com/category/the-market' target='_blank'>See more details about The Market</a>"
+            reply(re)
+          } else if (textContent.indexOf('Frankfurt Rights') != '-1') {
+            var re =
+              'Frankfurt Rights, formerly IPR License, is the leading fully transactional rights and licensing marketplace available within the publishing industry. IPR License was established in 2012 to address a specific gap in the market, it provides a dedicated online portal that enables rights holders to complete domestic and international licensing deals.' +
+              '<br/>' +
+              "<a href='https://frankfurtrights.com/Books?SelectedPageSize=20&OrderBy=1&HasRights=1' target='_blank'>See more details about Frankfurt Rights</a>"
+            reply(re)
+          } else if (textContent.indexOf('Translator Forum') != '-1') {
+            var re =
+              'It is an international forum that connects, encourages, informs and supports translators who translate from the German language. This virtual platform and the regular forum sessions have been created to support translators based in the region Asia-Pacific who translate from the German language into the different languages in South Asia, South East Asia, East Asia and the Pacific.' +
+              '<br/>' +
+              "<a href='https://translatorforum.de/' target='_blank'>See more details about Translator Forum</a>"
+            reply(re)
+          } else if (textContent.indexOf('Who can join Jaktent?') != '-1') {
+            var re =
+              'Everyone who is anyone in the business of content and intellectual property can join us. Our tent is open for global and local players, from established companies to small and medium enterprises.' +
+              '<br/>' +
+              "<a href='javascript:;'>How to register?</a>"
+            reply(re)
+          } else if (textContent.indexOf('How to register?') != '-1') {
+            var re =
+              "<a href='https://www.jaktent.com/register' target='_blank'>There are detailed steps on the following website.</a>"
+            reply(re)
+          } else if (
+            textContent.indexOf('How do I participate as an attendee?') != '-1'
+          ) {
+            var re =
+              'Go to our registration page and choose “attendee”. You will be directed to a page where you can select the programs that you are interested in, or to buy the day pass for Jaktent. We strongly encourage you to buy the day pass as you will get to enjoy more programs with better pricing!' +
+              '<br/>' +
+              "<a href='javascript:;'>Do I need a ticket to attend?</a>"
+            reply(re)
+          } else if (
+            textContent.indexOf('Do I need a ticket to attend?') != '-1'
+          ) {
+            var re =
+              "Yes. We want to make sure that you'll have the best experience during 2020 Jaktent, so please register first on the website and go buy a ticket." +
+              '<br/>' +
+              "<a href='javascript:;'>Where can I get a ticket?</a>"
+            reply(re)
+          } else if (textContent.indexOf('Where can I get a ticket?') != '-1') {
+            var re =
+              'To get a ticket, you can send messages to the following email:' +
+              '<br/>' +
+              'ticket@jaktent.com'
+            reply(re)
+          } else if (
+            textContent.indexOf(
+              'I am interested in a free session, how can I watch it?'
+            ) != '-1'
+          ) {
+            var re =
+              "Go to our registration page and choose “attendee”. Free sessions will be marked as free and you don't need to pay for the tickets. Please note that you still have to complete the whole order process."
+            reply(re)
+          } else if (
+            textContent.indexOf(
+              "I have questions regarding Jaktent that can't be found here, where should I go?"
+            ) != '-1'
+          ) {
+            var re =
+              'Send an email to contact@jaktent.com or send a DM to our social media accounts.' +
+              '<br/>' +
+              "<a href='javascript:;'>I want to know more</a>"
+            reply(re)
+          } else if (textContent.indexOf('I want to know more') != '-1') {
+            var re =
+              'For general inquiry, send an email to  ' +
+              '<br/>' +
+              'admin@jaktent.com' +
+              '<br/>' +
+              'For content and collaboration, send an email to  ' +
+              '<br/>' +
+              'contact@jaktent.com' +
+              '<br/>' +
+              'For ticketing and registration, send an email to  ' +
+              '<br/>' +
+              'ticket@jaktent.com'
+            reply(re)
+            console.log(textContent)
+          } else {
+            var str = ''
+            $.ajax({
+              type: 'POST',
+              url: 'http://127.0.0.1:5000/predict1',
+              data: {
+                input: textContent
+              },
+              dataType: 'json',
+              success: function (data) {
+                var re = JSON.stringify(data.result)
+                reply(re)
+              }
+            })
+          }
+        }
+        var as = document.querySelectorAll('a')
+
+        for (var i = 0; i < as.length; i++) {
+          as[i].onclick = function () {
+            if (this.href == 'javascript:;') {
+              $('.div-textarea').html(this.innerHTML)
+              $('#chat-fasong').click()
+            }
+          }
+        }
+      })
+      // Make the first text also linkable
+      // var aas = document.querySelectorAll('.chat-message .fistQuestion');
+      // for (var i = 0; i < aas.length; i++) {
+      //     aas[i].addEventListener('click', function() {
+      //         $(".div-textarea").html(this.innerHTML);
+      //         $("#chat-fasong").click();
+      //     })
+      // }
+      // Set Enter key to send
+      var div_textarea = document.querySelector('.div-textarea')
+      div_textarea.addEventListener('keydown', function (e) {
+        if (e.keyCode == 13) {
+          $('#chat-fasong').click()
+        }
+        return false
+      })
+
+      // Send emoji
+      $('#chat-biaoqing').click(function () {
+        $('.biaoqing-photo').toggle()
+      })
+      $(document).click(function () {
+        $('.biaoqing-photo').css('display', 'none')
+      })
+      $('#chat-biaoqing').click(function (event) {
+        event.stopPropagation() // Block the event
+      })
+
+      $('.emoji-picker-image').each(function () {
+        $(this).click(function () {
+          var bq = $(this).parent().html()
+          console.log(bq)
+          $('.chatBox-content-demo').append(
+            '<div class="clearfloat">' +
+              '<div class="author-name"><small class="chat-date" id="timenow"></small> </div> ' +
+              '<div class="right"> <div class="chat-message"> ' +
+              bq +
+              ' </div> ' +
+              '<div class="chat-avatars"><img src="static/icon01.png" alt="avatar" /></div> </div> </div>'
+          )
+          // Close emoji box after sending
+          $('.biaoqing-photo').toggle()
+          // The chat box is at the bottom by default
+          $(document).ready(function () {
+            $('#chatBox-content-demo').scrollTop(
+              $('#chatBox-content-demo')[0].scrollHeight
+            )
+          })
+          document.getElementById('timenow').innerHTML = timenow()
+        })
+      })
+      // Automatically reply
+      function reply(textContent) {
+        if (textContent != '') {
+          $('.chatBox-content-demo').append(
+            '<div class="clearfloat">' +
+              '<div class="author-name"><small class="chat-date" id="timenow"></small> </div> ' +
+              '<div class="left"><div class="chat-avatars"><img src="static/icon01.png" alt="avatar" /></div>  ' +
+              '<div class="chat-message"> ' +
+              textContent +
+              ' </div> </div> </div>'
+          )
+          // Clear the input box after sending
+          //  $(".div-textarea").html("");
+          // The chat box is at the bottom by default
+          $(document).ready(function () {
+            $('#chatBox-content-demo').scrollTop(
+              $('#chatBox-content-demo')[0].scrollHeight
+            )
+          })
+          document.getElementById('timenow').innerHTML = timenow()
+        }
+      }
+      // Send image
+      function selectImg(pic) {
+        if (!pic.files || !pic.files[0]) {
+          return
+        }
+        var reader = new FileReader()
+        reader.onload = function (evt) {
+          var images = evt.target.result
+          $('.chatBox-content-demo').append(
+            '<div class="clearfloat">' +
+              '<div class="author-name"><small class="chat-date" id="timenow"></small> </div> ' +
+              '<div class="right"> <div class="chat-message"><img src=' +
+              images +
+              '></div> ' +
+              '<div class="chat-avatars"><img src="static/icon01.png" alt="avatar" /></div> </div> </div>'
+          )
+          // The chat box is at the bottom by default
+          $(document).ready(function () {
+            $('#chatBox-content-demo').scrollTop(
+              $('#chatBox-content-demo')[0].scrollHeight
+            )
+          })
+          document.getElementById('timenow').innerHTML = timenow()
+        }
+
+        reader.readAsDataURL(pic.files[0])
+      }
+    </script>
+  </body>
+</html>
